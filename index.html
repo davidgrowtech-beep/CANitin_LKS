@@ -29,20 +29,20 @@
     color:var(--paper-100);
     font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   }
-  .wrap{max-width:480px;margin:0 auto;padding:0 20px 36px;min-height:100vh;display:flex;flex-direction:column;}
+  .wrap{max-width:480px;margin:0 auto;padding:0 clamp(14px,4vw,20px) 36px;min-height:100vh;display:flex;flex-direction:column;}
 
   .urgency{
     display:flex;align-items:center;gap:8px;
     background:var(--navy-900);
     border-bottom:1px solid var(--navy-700);
     color:var(--gold-300);
-    font-size:12.5px;font-weight:600;letter-spacing:.2px;
-    padding:10px 20px;
+    font-size:clamp(11px,3vw,12.5px);font-weight:600;letter-spacing:.2px;
+    padding:10px clamp(14px,4vw,20px);
   }
   .urgency .dot{width:6px;height:6px;border-radius:50%;background:var(--sage-500);flex-shrink:0;box-shadow:0 0 0 3px rgba(94,146,128,.25);}
 
   header.identity{display:flex;align-items:center;gap:12px;margin:24px 0 4px;}
-  header.identity img{width:56px;height:56px;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--navy-700);}
+  header.identity img{width:clamp(44px,12vw,56px);height:clamp(44px,12vw,56px);border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--navy-700);}
   .identity-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
   .identity-name{font-size:13.5px;font-weight:600;color:var(--paper-100);}
   .verified-pill{
@@ -54,31 +54,33 @@
   .verified-pill svg{width:10px;height:10px;flex-shrink:0;}
 
   .hero-wrap{position:relative;margin-top:22px;}
-  .chart-motif{position:absolute;top:-8px;right:-6px;width:150px;height:96px;opacity:.5;pointer-events:none;}
+  .chart-motif{position:absolute;top:-8px;right:-6px;width:clamp(80px,26vw,150px);height:auto;opacity:.5;pointer-events:none;}
 
   .card{
     position:relative;z-index:1;
     background:linear-gradient(180deg,var(--navy-800) 0%,var(--navy-900) 100%);
     border:1px solid var(--navy-700);
     border-radius:14px;
-    padding:26px 22px 24px;
+    padding:clamp(20px,6vw,26px) clamp(16px,5vw,22px) 24px;
   }
   .eyebrow{font-size:13px;color:var(--sage-300);font-weight:500;margin:0 0 10px;}
   h1{
     font-family:'Fraunces',Georgia,serif;
     font-weight:600;
-    font-size:27px;line-height:1.28;
+    font-size:clamp(21px,6.2vw,27px);line-height:1.28;
     letter-spacing:-.2px;
     margin:0 0 12px;color:var(--paper-100);
+    overflow-wrap:break-word;
   }
-  p.sub{color:var(--paper-300);font-size:15px;line-height:1.6;margin:0 0 22px;}
+  p.sub{color:var(--paper-300);font-size:clamp(13px,3.6vw,15px);line-height:1.6;margin:0 0 22px;}
+  p.sub h2{font-size:clamp(14px,4vw,16px);margin:8px 0 0;color:var(--paper-100);font-weight:600;}
 
   ul.benefits{list-style:none;padding:0;margin:0 0 24px;}
   ul.benefits li{
     display:flex;gap:12px;align-items:flex-start;
     padding:11px 0;
     border-top:1px solid rgba(199,211,220,.14);
-    font-size:14.5px;line-height:1.5;color:var(--paper-100);
+    font-size:clamp(13px,3.6vw,14.5px);line-height:1.5;color:var(--paper-100);
   }
   ul.benefits li:first-child{border-top:none;}
   .tick{
@@ -91,10 +93,11 @@
   a.cta{
     display:block;text-align:center;text-decoration:none;
     background:linear-gradient(180deg,var(--gold-300) 0%,var(--gold-500) 100%);
-    color:var(--navy-950);font-weight:700;font-size:16px;
+    color:var(--navy-950);font-weight:700;font-size:clamp(14.5px,4vw,16px);
     padding:16px;border-radius:9px;
     box-shadow:0 0 0 1px rgba(0,0,0,.05), 0 10px 24px -8px rgba(205,160,67,.5);
     animation:ctaSettle 900ms cubic-bezier(.2,.8,.2,1) 1, ctaBreathe 3.4s ease-in-out 900ms infinite;
+    touch-action:manipulation;
   }
   @keyframes ctaSettle{
     0%{transform:translateY(6px) scale(.98);opacity:0;}
@@ -126,6 +129,11 @@
     background:var(--navy-900);color:var(--paper-100);
     font-size:12px;padding:10px 14px;text-align:center;z-index:999;
     border-bottom:1px solid var(--navy-700);
+  }
+
+  @media (max-width:360px){
+    header.identity{margin-top:18px;}
+    .chart-motif{display:none;}
   }
 </style>
 </head>
@@ -167,9 +175,9 @@
     </svg>
 
     <div class="card">
-      <p class="eyebrow">Free live trading education</p>
+      <p class="eyebrow">Free live trading Skills education</p>
       <h1>Learn the market fundamentals professional traders rely on</h1>
-      <p class="sub">रोज़ाना सटीक जानकारी सीधे आपके Telegram पर</p>
+      <p class="sub">रोज़ाना सटीक जानकारी सीधे आपके Telegram पर <br> <h2>First Learn by Experts and Apply in Real World</h2></p>
       <ul class="benefits">
         <li><span class="tick"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="#CDA043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Daily proven and strategic updates</li>
         <li><span class="tick"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="#CDA043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Expert guidance, not guesswork</li>
@@ -208,16 +216,6 @@ fbq('track', 'PageView');
   });
 
   var btn = document.getElementById('ctaBtn');
-  if(btn){
-    btn.addEventListener('click', function(ev){
-      // Native anchor navigation is NEVER blocked here — no preventDefault, no setTimeout delay.
-      var genuine = ev.isTrusted && hasInteracted && (Date.now() - loadTime) >= dwellMs;
-      if(genuine && !sessionStorage.getItem(dedupKey)){
-        sessionStorage.setItem(dedupKey, '1');
-        if(typeof fbq === 'function'){ fbq('track', eventName); }
-      }
-    }, {capture:true});
-  }
 
   // Facebook / Instagram in-app browser handling
   var ua = navigator.userAgent || '';
@@ -227,14 +225,36 @@ fbq('track', 'PageView');
   if(isFbIg){
     var banner = document.getElementById('inappBanner');
     if(banner) banner.style.display = 'block';
-    if(isAndroid && btn){
-      var tgUrl = btn.getAttribute('href') || '';
-      var withoutScheme = tgUrl.replace(/^https?:\/\//,'');
-      var intentUrl = 'intent://' + withoutScheme + '#Intent;scheme=https;package=org.telegram.messenger;end';
-      btn.addEventListener('click', function(){
-        setTimeout(function(){ window.location.href = intentUrl; }, 30);
-      }, {capture:true});
-    }
+  }
+
+  if(btn){
+    btn.addEventListener('click', function(ev){
+      var genuine = ev.isTrusted && hasInteracted && (Date.now() - loadTime) >= dwellMs;
+      if(genuine && !sessionStorage.getItem(dedupKey)){
+        sessionStorage.setItem(dedupKey, '1');
+        if(typeof fbq === 'function'){ fbq('track', eventName); }
+      }
+
+      // On Android inside the FB/Instagram in-app webview, letting the browser's
+      // own https navigation run rarely hands off to the Telegram app — that's
+      // the main reason ad clicks weren't turning into Telegram join requests.
+      // Fix: cancel the default navigation ONLY in this case, and jump to
+      // intent:// synchronously (no setTimeout) so the tap's user-gesture is
+      // still attached. browser_fallback_url still lands on the https link if
+      // Telegram isn't installed, so nothing is lost on that path either.
+      if(isFbIg && isAndroid){
+        ev.preventDefault();
+        var tgUrl = btn.getAttribute('href') || '';
+        var withoutScheme = tgUrl.replace(/^https?:\/\//,'');
+        var intentUrl = 'intent://' + withoutScheme +
+          '#Intent;scheme=https;package=org.telegram.messenger;S.browser_fallback_url=' +
+          encodeURIComponent(tgUrl) + ';end';
+        window.location.href = intentUrl;
+      }
+      // All other cases (normal mobile browser, iOS FB/IG webview, desktop):
+      // the anchor's own https navigation is left completely alone — no
+      // preventDefault, no delay.
+    }, {capture:true});
   }
 })();
 </script>
